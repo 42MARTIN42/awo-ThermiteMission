@@ -1,4 +1,4 @@
-local QBCore = exports['qb-core']:GetCoreObject()
+ local QBCore = exports['qb-core']:GetCoreObject()
 local StartPeds = {}
 local isActive = false
 local InMilitaryPoint = false
@@ -265,8 +265,7 @@ AddEventHandler("awo-ThermiteMission:SpawnTruck", function()
         Citizen.CreateThread(function()
             while true do
                 Citizen.Wait(7)
-                if IsPedInAnyVehicle(PlayerPedId(), false) then
-                    --QBCore.Functions.Notify("Drive To The Location Marked On Your GPS !", "success", 4000)
+                if IsPedInAnyVehicle(PlayerPedId(), false) and GetVehiclePedIsIn(PlayerPedId(), false) == veh then
                     Notify(type, "Szuper meg szerezted a csomagot! Itt vannak a kordináték, itt várlak!", textType, "Paige Harris", "Convoy", time)
                    Wait(10000)
                    Notify("qb", "Menj a ki jelölet helyre, Grapeseed-ben!", "primary", nil, nil, 6000)
